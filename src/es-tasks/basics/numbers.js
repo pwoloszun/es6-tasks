@@ -19,6 +19,8 @@ function toInfinity() {
  * Returns pseudo random number between [0, max)
  * */
 function random(max) {
+  // Math.random() => [0, 1)
+  return -123;
 }
 
 /*

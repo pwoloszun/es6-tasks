@@ -1,16 +1,18 @@
 /*
  * Calls function fn for each element of array
  * */
-function each(fn) {
+function each(list, fn) {
 }
 
-function eachTest() {
-  [1, 2, 3].each(function (i) {
+function testEach() {
+  const myInts = [10, 20, 30];
+  each(myInts, function (i) {
     console.log(i);
   }); // => logs on console: 1, 2, 3
 
-  ['Bob', 'Kate'].each(function (name) {
-    console.log(name);
+  const names = ['Bob', 'Kate'];
+  each(names, function (name) {
+    console.log(name + ' hello', this === names);
   }); // => logs on console: 'Bob', 'Kate'
 }
 
@@ -20,11 +22,17 @@ function map(list, mapper) {
 
 function testMap() {
   const names = ['Bob', 'Ed', 'Kate'];
-  const mapper = (name) => {
+  const nameToGreetingFn = function (name) {
     return 'Hello, ' + name;
   };
-  const greetings = map(names, mapper);
+  const greetings = map(names, nameToGreetingFn);
   console.log('map:', greetings);
+
+  const luckyNumbers = [10, 20, 30];
+  const squares = map(luckyNumbers, function (i) {
+    return i * i;
+  });
+  console.log('map:', squares);
 }
 
 // TODO: filter
@@ -33,7 +41,7 @@ function filter(list, filteringAlgorithm) {
 
 function testFilter() {
   const names = ['Bob', 'Ed', 'Brian', 'Ben', 'Kate'];
-  const startingWithB = (name) => {
+  const startingWithB = function (name) {
     return name[0].toUpperCase() === 'B';
   };
   const namesStartingWithB = filter(names, startingWithB);
@@ -50,15 +58,22 @@ function testMerge() {
 }
 
 // TODO: reduce
-function reduce(list, iterator) {
+function reduce(list, iterator, startMemo) {
 }
 
 function testReduce() {
-  const sumFn = function (memo, item, index, list) {
+  const sumFn = function (memo, item) {
     return memo + item;
   };
   // should return => 14
-  console.log('reduce 1:', reduce([2, 5, 7], sumFn));
+  console.log('reduce 1:', reduce([2, 5, 7], sumFn, -10));
+
+  const accumulateStrings = function (memo, name) {
+    memo.push(name.toUpperCase());
+    return memo;
+  };
+  console.log('reduce 1:', reduce(['bob', 'ed', 'joe'], accumulateStrings, ['kate']));
+
 
   const mergeFn = function (memo, item, index, list) {
     return merge(memo, item);
@@ -116,6 +131,7 @@ function uniq(list, fn) {
 }
 
 export default function closuresApp() {
+  testEach();
   testAll();
   testFilter();
   testGroupBy();

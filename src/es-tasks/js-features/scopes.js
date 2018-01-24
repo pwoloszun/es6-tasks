@@ -1,15 +1,21 @@
-const name = 'module';
+/* eslint-disable prefer-const */
+let name = 'module';
 
 function outer() {
-  const name = 'outer local';
+  let name = 'outer';
 
   function inner1() {
-    const name = 'inner1 local';
+    let name = 'inner1';
 
     function inner2() {
-      const name = 'inner2 local';
+      let name = 'inner2';
     }
+
+    inner2();
   }
+
+  inner1();
 }
 
-console.log('after outer', name);
+outer();
+console.log('after outer()', name);

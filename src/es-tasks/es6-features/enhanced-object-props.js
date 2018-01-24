@@ -1,3 +1,10 @@
+// string templates
+function stringTemplatesExample() {
+  const name = 'bob';
+  let str = 'name ' + name + ' rules!';
+  // uptick
+  str = `name ${name.toUpperCase()} rules!`;
+}
 
 // prop shorthand
 function propShorthandExample() {
