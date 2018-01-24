@@ -1,0 +1,101 @@
+JS:
+scopes
+closures
+contexts
+custom class definition
+prototype extensions
+prototypal inheritance
+declaration time vs execution time
+
+ES6:
+arrow functions
+classes
+enhanced object literals
+template strings
+destructuring
+default + rest + spread
+let + const
+iterators + for..of
+generators
+modules
+module loaders
+promises
+
+Vue.js:
+architecture overview, essentials:
+Components basics:
+data & methods
+Templates, templates syntax:
+interpolations
+built-in directives
+conditional rendering
+list rendering
+browser events handling, events modifiers
+form inputs binding
+In-depth components:
+computed props & watchers
+global vs local registration
+lifecycle & Lifecycle Hooks
+props:
+literal vs dynamic
+one-way data flow
+validation
+custom events, modifiers
+components composition
+cross components communication: props, events, slots
+state basics & state management
+Components Unit Testing
+Custom Directives:
+hook functions
+hook arguments
+Filters
+Plugins
+Unit Testing
+Routing with vue-router:
+static & dynamic route matching
+imperative & declarative navigation
+props passing
+guards
+data fetching
+lazy loading
+
+Vuex:
+architecture overview
+building blocks:
+State
+Getters
+Mutations
+Actions
+Modules
+devtools-extension, Hot Module Reload
+plugins
+form handling
+Unit Testing
+Vue.js + Vuex:
+App modeling and design
+Real apps:
+real projects challenges and problems
+non trivial examples
+best practices
+style guides (project structure, conventions, dev environment & tools)
+best additional external resources
+
+Modeling App State:
+Components, Higher Order Components
+separation of concerns
+design principles
+data architecture
+unidirectional data flow
+
+Webpack:
+core concepts
+basic configuration
+
+
+
+Dev tools:
+
+
+
+E2E tests:
+- nightwatch
