@@ -3,8 +3,6 @@
  * other parameter passed to function
  * */
 function callInContext(fn, contextObj) {
-  const args = Array.prototype.slice.call(arguments, 2);
-  fn.apply(contextObj, args);
 }
 
 function callInContextTest() {
@@ -22,7 +20,6 @@ function callInContextTest() {
  * console.log() shortcut
  * */
 function log() {
-  console.log.apply(console, arguments);
 }
 
 function logTest() {
@@ -37,9 +34,6 @@ function logTest() {
  * Each time binded function is called, its called in context of contextObj
  * */
 function bind(contextObj, fn) {
-  return function bindedFn() {
-    return fn.apply(contextObj, arguments);
-  };
 }
 
 function bindTest() {
@@ -60,3 +54,9 @@ function bindTest() {
 }
 
 //bindTest();
+
+export default function contextApp() {
+  callInContextTest();
+  // logTest();
+  // bindTest();
+}

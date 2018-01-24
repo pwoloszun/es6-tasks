@@ -1,22 +1,14 @@
-import geoLocator from './geo-locator-api';
-import gmaps from './gmaps-api';
-import openWeatherApi from './open-weather-api';
+// TODO
 
 const fullWeatherApi = {
   getWeatherByGeoLocation() {
-    const fullData = {};
-    const promise = geoLocator.locate().then((geo) => {
-      fullData.coords = geo.coords;
-      return gmaps.detailsByCoords(geo.coords);
-    }).then((response) => {
-      const result = response.data.results[0];
-      fullData.gmaps = result;
-      return openWeatherApi.weather(result);
-    }).then((response) => {
-      fullData.openWeather = response.data;
-      return fullData;
-    });
-    return promise;
+    // TODO 1: get coords from geo location
+    // TODO 2: get gmap details
+    // TODO 3: get weather from openWeather by:
+    // const result = response.data.results[0];
+
+    // assign everything to:
+    // const fullData = {};
   },
 };
 

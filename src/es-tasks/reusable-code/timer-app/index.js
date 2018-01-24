@@ -1,30 +1,32 @@
-function timerTest(Timer) {
-  var params = {
-    duration: 20, // in sec, default: Infinity
-    step: 2 // in sec, default: 1
-  };
-  var timer = new Timer(params);
+import Timer from './Timer';
 
-  // on(eventName, listener) - assigns listener to given eventName ("start", "pause", "tick", "end")
+export default function timerApp() {
+  const params = {
+    duration: 20, // in sec, default: Infinity
+    step: 2, // in sec, default: 1
+  };
+  const timer = new Timer(params);
+
+  // on(eventName, listener) - assigns listener to given eventName ('start', 'pause', 'tick', 'end')
   // triggered when timer is started
-  timer.on("start", function (currentTime) {
-    console.log("started at: " + currentTime);
+  timer.on('start', function (currentTime) {
+    console.log('started at: ' + currentTime);
   });
 
   // triggered when timer finishes or has been stoped
-  timer.on("stop", function (currentTime) {
+  timer.on('stop', function (currentTime) {
     // this === timer
-    console.log("stopped at: " + currentTime);
+    console.log('stopped at: ' + currentTime);
   });
 
   // triggered when timer is paused
-  timer.on("pause", function (currentTime) {
-    console.log("paused at: " + currentTime);
+  timer.on('pause', function (currentTime) {
+    console.log('paused at: ' + currentTime);
   });
 
   // triggers every step seconds
-  timer.on("tick", function (currentTime) {
-    console.log("tick at: " + currentTime);
+  timer.on('tick', function (currentTime) {
+    console.log('tick at: ' + currentTime);
   });
 
   timer.start(); // start() - starts timer
@@ -45,5 +47,3 @@ function timerTest(Timer) {
   //   timer.start(); // stop() - stops timer
   // }, 18000);
 }
-
-timerTest(MyApp.Models.Timer);
