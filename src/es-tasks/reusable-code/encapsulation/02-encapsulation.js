@@ -1,24 +1,20 @@
-const DEFAULT_NAME = '[no name]';
-
-const generateNumberFor = (serialNo) => {
-  return 'ABX-' + serialNo;
-};
+const MILSEC_IN_YEAR = 1000 * 60 * 60 * 24 * 365;
 
 class Robot {
-  constructor(_name, serialNo) {
-    this.serialNo = generateNumberFor(serialNo);
-    this._createdAt = Robot.now();
+  constructor(name, dob = '1976-01-01T00:00:00') {
+    this.name = name;
+    this.dob = dob;
+    this.age = this.calculateAge();
   }
 
   getName() {
     return this._name;
   }
 
-  getCreatedAt() {
-    return this._createdAt;
-  }
-
-  static now() {
-    return new Date();
+  calculateAge() {
+    const dt = new Date(this.dob);
+    return dt.getTime() / MILSEC_IN_YEAR;
   }
 }
+
+export default Robot;
