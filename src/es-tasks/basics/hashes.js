@@ -14,10 +14,6 @@
 function checkCountryCapital(countryName, capitalName) {
 }
 
-Object.prototype.myMethod = function (param1, param2) {
-  // this is a reference to object that called myMethod()
-};
-
 /*
  * Usage:
  * {name: 'Bob', age: 22}.keys() => ['name', 'age']
