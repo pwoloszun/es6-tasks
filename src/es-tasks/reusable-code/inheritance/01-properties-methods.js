@@ -18,5 +18,3 @@ export function propertiesMethodsApp() {
   coco.setAge(15);
   console.log('monkey', coco.getName(), coco.name, coco.age);
 }
-
-
