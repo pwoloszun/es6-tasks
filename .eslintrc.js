@@ -46,7 +46,7 @@ module.exports = {
     }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // my
+// my
     "no-console": 0,
     "arrow-body-style": 0,
     'prefer-arrow-callback': 0,
@@ -60,5 +60,6 @@ module.exports = {
     'prefer-spread': 0,
     'no-underscore-dangle': 0,
     'func-names': 0,
+    'arrow-parens': 0,
   }
 };
