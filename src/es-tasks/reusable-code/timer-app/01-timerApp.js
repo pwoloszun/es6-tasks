@@ -1,6 +1,6 @@
-import Timer from './Timer';
+import { Timer } from './src/Timer';
 
-export default function timerApp() {
+export function timerApp() {
   const params = {
     duration: 20, // in sec, default: Infinity
     step: 2, // in sec, default: 1
@@ -9,41 +9,41 @@ export default function timerApp() {
 
   // on(eventName, listener) - assigns listener to given eventName ('start', 'pause', 'tick', 'end')
   // triggered when timer is started
-  timer.on('start', function (currentTime) {
-    console.log('started at: ' + currentTime);
+  timer.on('start', function (currentStep) {
+    console.log('started at: ' + currentStep);
   });
 
   // triggered when timer finishes or has been stoped
-  timer.on('stop', function (currentTime) {
+  timer.on('stop', function (currentStep) {
     // this === timer
-    console.log('stopped at: ' + currentTime);
+    console.log('stopped at: ' + currentStep);
   });
 
   // triggered when timer is paused
-  timer.on('pause', function (currentTime) {
-    console.log('paused at: ' + currentTime);
+  timer.on('pause', function (currentStep) {
+    console.log('paused at: ' + currentStep);
   });
 
   // triggers every step seconds
-  timer.on('tick', function (currentTime) {
-    console.log('tick at: ' + currentTime);
+  timer.on('tick', function (currentStep) {
+    console.log('tick at: ' + currentStep);
   });
 
   timer.start(); // start() - starts timer
 
-  // setTimeout(function() {
+  // setTimeout(function () {
   //   timer.pause(); // pause() - pauses counter
   // }, 5000);
   //
-  // setTimeout(function() {
+  // setTimeout(function () {
   //   timer.start(); // resume paused timer
   // }, 6000);
   //
-  // setTimeout(function() {
+  // setTimeout(function () {
   //   timer.stop(); // stop() - stops timer
   // }, 16000);
   //
-  // setTimeout(function() {
+  // setTimeout(function () {
   //   timer.start(); // stop() - stops timer
   // }, 18000);
 }
