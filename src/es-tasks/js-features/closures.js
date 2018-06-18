@@ -19,17 +19,23 @@ function eachTest() {
 /*
  * Maps each array element, using function fn
  * */
-function map(fn) {
+function map(array, fn) {
 }
 
 function testMap() {
-  [1, 2, 3, 4].map(function (i) {
-    return i % 2 === 0;
-  }); // => [2, 4]
+  const ctx = { name: 'bob' };
 
-  ['Kate', 'Bob', 'Ed'].map(function (name) {
+  const ints = [1, 2, 3, 4];
+  const squares = map(ints, function (i) {
+    return i * i;
+  }); // => [1, 4, 9, 16]
+  console.log('squares', squares);
+
+  const names = ['Kate', 'Bob', 'Ed'];
+  const greetings = map(names, function (name) {
     return 'Hello ' + name;
   }); // => ['Hello Kate', 'Hello Bob', 'Hello Ed']
+  console.log('greetings', greetings);
 }
 
 
@@ -37,17 +43,21 @@ function testMap() {
  * Filters array using boolean function fn and returns new instance
  * containing only filtered elements
  * */
-function filter(fn) {
+function filter(array, fn) {
 }
 
 function testFilter() {
-  [1, 2, 3, 4].filter(function (i) {
+  const ints = [1, 2, 3, 4];
+  const filteredInts = filter(ints, function (i) {
     return i > 2.4;
   }); // => [3, 4]
+  console.log('filtered ints', filteredInts);
 
-  ['Kate', 'Bob', 'Ed', 'Ben'].filter(function (name) {
+  const names = ['Kate', 'Bob', 'Ed', 'Ben'];
+  const filteredNames = filter(names, function (name) {
     return name[0] === 'B';
   }); // => ['Bob', 'Ben']
+  console.log('filteredNames', filteredNames);
 }
 
 // TODO: all
@@ -143,12 +153,12 @@ function testGroupBy() {
   console.log('groupBy 2:', groupBy(names, byFirstLetter));
 }
 
-export function closuresApp() {
-  testAll();
-  testFilter();
-  testGroupBy();
+export default function closuresApp() {
+  // testAll();
+  // testFilter();
+  // testGroupBy();
   testMap();
-  testMerge();
-  testPluck();
-  testReduce();
+  // testMerge();
+  // testPluck();
+  // testReduce();
 }
