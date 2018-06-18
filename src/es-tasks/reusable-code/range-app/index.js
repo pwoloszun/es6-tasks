@@ -9,11 +9,11 @@ export default function rangeApp() {
   const otherRange = new Range(-10, 20);
 
   /* include(number) returns true if number ranges from start to end */
-  range.include(21); // => true
-  range.include(100); // => false
+  console.log('incl 21', range.include(21));
+  console.log('incl 100', range.include(100));
 
   /* length() returns length of range */
-  range.length(); // => 89
+  console.log('length', range.length());
 
   /* intersectsith(otherRange) returns true if intersection of both ranges is not empty */
   // range.intersectsWith(otherRange); // => true
