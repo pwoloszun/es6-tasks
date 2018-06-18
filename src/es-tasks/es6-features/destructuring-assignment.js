@@ -48,11 +48,7 @@ function destructuringParamsApp() {
     return [a, b, ccc];
   }
 
-  console.log('paramsToArray', paramsToArray({
-    a: 'Anna',
-    c: 'Cecylia',
-    z: 'Zorror',
-  }));
+  console.log('paramsToArray', paramsToArray({ a: 'Anna', c: 'Cecylia' }));
 
   function createBirthdayWishes({ firstName, lastName, age, from }) {
     return `\n\nSurprise ${firstName} ${lastName}!\nAll the best on your ${age} birthday from:\n\n${from.join(',\n')}`;

@@ -61,6 +61,8 @@ module.exports = {
     'no-underscore-dangle': 0,
     'func-names': 0,
     'arrow-parens': 0,
-    'import/prefer-default-import': 0,
+    'import/prefer-default-export': 0,
+    'no-trailing-spaces': 0,
+    'comma-dangle': 0,
   }
 };

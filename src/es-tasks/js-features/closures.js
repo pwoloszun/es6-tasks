@@ -1,89 +1,58 @@
 /*
  * Calls function fn for each element of array
  * */
-function each(list, fn) {
+function each(fn) {
 }
 
-function testEach() {
-  const myInts = [10, 20, 30];
-  each(myInts, function (i) {
+function eachTest() {
+  [1, 2, 3].each(function (i) {
     console.log(i);
   }); // => logs on console: 1, 2, 3
 
-  const names = ['Bob', 'Kate'];
-  each(names, function (name) {
-    console.log(name + ' hello', this === names);
+  ['Bob', 'Kate'].each(function (name) {
+    console.log(name);
   }); // => logs on console: 'Bob', 'Kate'
 }
 
-// TODO: map
-function map(list, mapper) {
+//eachTest();
+
+/*
+ * Maps each array element, using function fn
+ * */
+function map(fn) {
 }
 
 function testMap() {
-  const names = ['Bob', 'Ed', 'Kate'];
-  const nameToGreetingFn = function (name) {
-    return 'Hello, ' + name;
-  };
-  const greetings = map(names, nameToGreetingFn);
-  console.log('map:', greetings);
+  [1, 2, 3, 4].map(function (i) {
+    return i % 2 === 0;
+  }); // => [2, 4]
 
-  const luckyNumbers = [10, 20, 30];
-  const squares = map(luckyNumbers, function (i) {
-    return i * i;
-  });
-  console.log('map:', squares);
+  ['Kate', 'Bob', 'Ed'].map(function (name) {
+    return 'Hello ' + name;
+  }); // => ['Hello Kate', 'Hello Bob', 'Hello Ed']
 }
 
-// TODO: filter
-function filter(list, filteringAlgorithm) {
+
+/*
+ * Filters array using boolean function fn and returns new instance
+ * containing only filtered elements
+ * */
+function filter(fn) {
 }
 
 function testFilter() {
-  const names = ['Bob', 'Ed', 'Brian', 'Ben', 'Kate'];
-  const startingWithB = function (name) {
-    return name[0].toUpperCase() === 'B';
-  };
-  const namesStartingWithB = filter(names, startingWithB);
-  console.log('filter:', namesStartingWithB);
-}
+  [1, 2, 3, 4].filter(function (i) {
+    return i > 2.4;
+  }); // => [3, 4]
 
-// TODO: merge
-function merge(destination, source) {
-}
-
-function testMerge() {
-  // should return => {xxx: 'qq', yyy: 2, zzz: 3}
-  console.log('merge:', merge({ xxx: 1, yyy: 2 }, { xxx: 'qq', zzz: 3 }));
-}
-
-// TODO: reduce
-function reduce(list, iterator, startMemo) {
-}
-
-function testReduce() {
-  const sumFn = function (memo, item) {
-    return memo + item;
-  };
-  // should return => 14
-  console.log('reduce 1:', reduce([2, 5, 7], sumFn, -10));
-
-  const accumulateStrings = function (memo, name) {
-    memo.push(name.toUpperCase());
-    return memo;
-  };
-  console.log('reduce 1:', reduce(['bob', 'ed', 'joe'], accumulateStrings, ['kate']));
-
-
-  const mergeFn = function (memo, item, index, list) {
-    return merge(memo, item);
-  };
-  // should return => {name: 'bob', age: 12, sex: 'M'}
-  console.log('reduce 2:', reduce([{ name: 'bob' }, { age: 12 }, { sex: 'M' }], mergeFn));
+  ['Kate', 'Bob', 'Ed', 'Ben'].filter(function (name) {
+    return name[0] === 'B';
+  }); // => ['Bob', 'Ben']
 }
 
 // TODO: all
 function all(list, test) {
+  return false;
 }
 
 function testAll() {
@@ -100,8 +69,62 @@ function testAll() {
   console.log('all 2:', all(['Bob', 'Ben', 'Beth'], firstLetterIsB));
 }
 
+// const obj = {name: 'bob'};
+// for (const propertyName in obj) {
+//   const value = obj[propertyName];
+// }
+
+// TODO: merge
+function merge(destination, source) {
+}
+
+function testMerge() {
+  // should return => {xxx: 'qq', yyy: 2, zzz: 3}
+  console.log('merge:', merge({ xxx: 1, yyy: 2 }, { xxx: 'qq', zzz: 3 }));
+}
+
+// TODO: reduce
+function reduce(list, accumulatorFn, startValue) {
+  return [];
+}
+
+function testReduce() {
+  const sumFn = function (memo, item, index, list) {
+    return memo + item;
+  };
+  // should return => 10
+  console.log('reduce 1:', reduce([2, 5, 7], sumFn, -4));
+
+  const mergeFn = function (memo, item, index, list) {
+    return merge(memo, item);
+  };
+  // should return => {name: 'bob', age: 12, sex: 'M'}
+  const objs = [{ name: 'bob' }, { age: 12 }, { sex: 'M' }];
+  const results = reduce(objs, mergeFn, {});
+  console.log('reduce 2:', results);
+}
+
+// TODO: pluck
+function pluck(list, propertyName) {
+  return [];
+}
+
+function testPluck() {
+  const people = [
+    { name: 'Bob', age: 12, sex: 'M' },
+    { name: 'Kate', age: 22, sex: 'F' },
+    { name: 'Ed', age: 34, sex: 'M' },
+  ];
+  // should return => ['Bob', 'Kate', 'Ed']
+  console.log('pluck 1:', pluck(people, 'name'));
+
+  // should return => ['M', 'F', 'M']
+  console.log('pluck 2:', pluck(people, 'sex'));
+}
+
 // TODO: groupBy
-function groupBy(list, iterator) {
+function groupBy(list, groupingFn) {
+  return {};
 }
 
 function testGroupBy() {
@@ -120,22 +143,12 @@ function testGroupBy() {
   console.log('groupBy 2:', groupBy(names, byFirstLetter));
 }
 
-
-/*
- * Returns first (from left) element which satisfy boolean function fn
- * */
-function find(list, fn) {
-}
-
-function uniq(list, fn) {
-}
-
-export default function closuresApp() {
-  testEach();
+export function closuresApp() {
   testAll();
   testFilter();
   testGroupBy();
   testMap();
   testMerge();
+  testPluck();
   testReduce();
 }
