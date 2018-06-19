@@ -2,22 +2,26 @@ function defineObjectWithProp(propName, value) {
   //TODO
 }
 
+function testDepProp() {
+  console.log('obj with prop', defineObjectWithProp('age', 45));
+}
+
 function defineObjectWithMethod(methName, fn) {
   //TODO
 }
 
-function testSimple() {
-  console.log('obj with prop', defineObjectWithProp('age', 45));
-
+function testDefMeth() {
   const fn = function () {
     console.log('method impl');
     return 'bob';
   };
-  console.log('obj with meth', defineObjectWithMethod('getName', fn));
+  const obj = defineObjectWithMethod('getName', fn);
+  console.log('obj with meth', obj.getName());
 }
 
 function defineObjectWithPropGetterSetter(propName, value) {
   // TODO: setter validates new propName value: throws error if undefined or null
+  // throw new Error('jakis tam opis bledu');
 }
 
 function testSetterGetter() {
@@ -34,5 +38,7 @@ function testSetterGetter() {
 
 
 export function enhancedTaskApp() {
+  testDepProp();
+  testDefMeth();
   testSetterGetter();
 }
