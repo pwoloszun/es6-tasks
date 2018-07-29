@@ -8,6 +8,22 @@ export function eventedExampleUsageApp() {
     console.log('1st listener triggered', params);
   };
 
+  bob.on('click', function (int, str) {
+    console.log('costam');
+  });
+
+  bob.on('click', function (int, str) {
+    console.log('costam jeszcze');
+  });
+
+
+  bob.trigger('click', [123, 'qq']);
+  other.trigger('click'); // happens
+
+  bob.off('click');
+  bob.trigger('click', [123, 'qq']); // nothing happens
+
+
   // assign many listeners to single event
   bob.on(eventName, listener);
   bob.on(eventName, function (...params) {
